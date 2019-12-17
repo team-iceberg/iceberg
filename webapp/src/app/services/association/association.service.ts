@@ -10,6 +10,6 @@ export class AssociationService {
     }
 
     getAll(): Observable<Association[]> {
-        return this.http.get<Association[]>('association');
+        return this.http.get<Association[]>('iceberg/associations');
     }
 }
