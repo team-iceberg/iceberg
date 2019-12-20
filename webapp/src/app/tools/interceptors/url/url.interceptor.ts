@@ -14,7 +14,6 @@ export class UrlInterceptor implements HttpInterceptor {
         } else {
             url = `${environment.BASE_URL}${req.url}`;
         }
-
         const newRequest = req.clone({url});
         return next.handle(newRequest);
     }
