@@ -1,26 +1,20 @@
 package iceberg.configuration;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.server.authentication.HttpStatusServerEntryPoint;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.reactive.CorsConfigurationSource;
-import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.util.Collections;
-
+/**
+ * Ceci a été trouvé par Samy ! :D
+ * Et il est trop fort Samy !
+ */
 @Configuration
 @EnableReactiveMethodSecurity
 public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
-
-    @Value("${security.authorized_origin}")
-    private String authorizedOrigin;
 
     @Override
     public void configure(WebSecurity web) {
@@ -28,19 +22,12 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    CorsConfigurationSource corsConfiguration() {
-        CorsConfiguration corsConfig = new CorsConfiguration();
-        corsConfig.applyPermitDefaultValues();
-
-        corsConfig.addAllowedMethod(HttpMethod.POST);
-        corsConfig.addAllowedMethod(HttpMethod.GET);
-        corsConfig.addAllowedMethod(HttpMethod.PUT);
-        corsConfig.addAllowedMethod(HttpMethod.DELETE);
-        corsConfig.addAllowedMethod(HttpMethod.OPTIONS);
-        corsConfig.setAllowedOrigins(Collections.singletonList(authorizedOrigin));
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", corsConfig);
-        return source;
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**").allowedOrigins("*");
+            }
+        };
     }
 }
