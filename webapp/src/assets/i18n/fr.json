@@ -1,0 +1,11 @@
+{
+  "title": "ICEBERG",
+  "associations": {
+    "buttons": {
+      "all": "Récupérer la liste des associations"
+    },
+    "name": "Nom",
+    "mail": "E-mail",
+    "president": "Nom président(e)"
+  }
+}
