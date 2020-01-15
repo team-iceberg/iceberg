@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Ceci a été trouvé par Samy ! :D
- * Et il est trop fort Samy !
+ * Et il est trop fort Samy ! C'est un champion !
  */
 @Configuration
 @EnableReactiveMethodSecurity
