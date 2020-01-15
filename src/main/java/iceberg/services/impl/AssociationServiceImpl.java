@@ -1,17 +1,22 @@
 package iceberg.services.impl;
 
+import iceberg.dao.AssociationDao;
 import iceberg.models.Association;
-import iceberg.models.President;
 import iceberg.services.AssociationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("iceberg.associationService")
 public class AssociationServiceImpl implements AssociationService {
 
+    @Autowired
+    @Qualifier("iceberg.associationDao")
+    private AssociationDao associationDao;
+
     public List<Association> getAllAssociations() {
-        President president = President.builder().name("Président").mail("president@test.fr").build();
-        return List.of(Association.builder().name("association test").mail("association.test@gmail.test").president(president).build());
+        return associationDao.getAll();
     }
 }
