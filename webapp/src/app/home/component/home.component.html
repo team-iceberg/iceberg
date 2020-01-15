@@ -1,0 +1,31 @@
+{{'title' | translate}}
+
+<button (click)="getAssociations()" mat-raised-button>
+    {{'associations.buttons.all' | translate}}
+</button>
+
+<div class="table-container">
+    <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>{{'associations.name' | translate}}</mat-header-cell>
+            <mat-cell *matCellDef="let association">
+                {{association.name}}
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="mail">
+            <mat-header-cell *matHeaderCellDef>{{'associations.mail' | translate}}</mat-header-cell>
+            <mat-cell *matCellDef="let association">
+                {{association.mail}}
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="president">
+            <mat-header-cell *matHeaderCellDef>{{'associations.president' | translate}}</mat-header-cell>
+            <mat-cell *matCellDef="let association">
+                {{association.president.name}}
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columnsDefinition; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnsDefinition"></mat-row>
+    </mat-table>
+</div>
