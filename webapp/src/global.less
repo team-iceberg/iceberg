@@ -1,0 +1,148 @@
+@media screen {
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    position: relative;
+    font-size: 16px;
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: normal;
+  }
+
+  snack-bar-container {
+    border-radius: 10px !important;
+    padding: 5px 20px !important;
+
+    &.info-snackbar {
+      background: #72BC2C !important;
+    }
+
+    &.warning-snackbar {
+      //background: rgba(208, 209, 13, 0.7) !important;
+      background: #FF9F12 !important;
+    }
+
+    &.alert-snackbar {
+      //background: rgba(209, 10, 0, 0.7) !important;
+      background: #BD382B !important;
+    }
+  }
+
+  .page-container {
+    .buttons-container {
+      .save, .add, .search {
+        background-color: #279b10;
+        font-weight: bold;
+        color: white;
+      }
+
+      .save:disabled {
+        background-color: #c7c7c7;
+      }
+    }
+
+    hr {
+      &.vertical {
+        border: none;
+        border-left: 1px solid #9b9b9b;
+        overflow: visible;
+        text-align: center;
+        height: 50%;
+        width: 5px;
+        margin-top: 3%;
+      }
+
+      &.horizontal {
+        border: none;
+        border-top: 1px solid #c7c7c7;
+        overflow: visible;
+        text-align: center;
+        height: 5px;
+        width: 50%;
+      }
+    }
+
+    .table-container {
+      overflow: auto;
+
+      /* Chrome, Safari, Edge, Opera */
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+
+      input:invalid {
+        background-color: white;
+        color: red;
+      }
+
+      ::ng-deep .mat-form-field-underline {
+        display: none;
+      }
+
+      .mat-select {
+        padding-right: 2vw;
+      }
+
+      .mat-row {
+        height: 30px;
+        min-height: 30px;
+        padding: 1% 0;
+      }
+
+      .mat-row-edit {
+        background-color: #e46f00;
+        opacity: 0.5;
+
+        .mat-cell, .mat-icon, /deep/ .mat-select-value {
+          color: white;
+        }
+      }
+
+      .mat-row-delete {
+        background-color: red;
+        opacity: 0.5;
+
+        .mat-cell, .mat-icon, /deep/ .mat-select-value {
+          color: white;
+        }
+      }
+
+      .mat-header-row {
+        height: 35px;
+        min-height: 30px;
+      }
+
+      .mat-column-action {
+        flex: 0 0 3vw;
+      }
+
+      .button-delete {
+        color: darkgrey;
+        min-height: 0;
+        max-height: 30px;
+
+        .mat-icon {
+          height: 40px;
+        }
+      }
+    }
+
+    .datepicker {
+      width: 50px;
+      height: 40px;
+
+      .mat-form-field-underline {
+        display: none;
+      }
+    }
+  }
+}

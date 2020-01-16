@@ -1,41 +1,51 @@
-{{'title' | translate}}
+<nav style="background-color: #1e7e34 !important" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <a class="nav-link">{{this.socialusers.name}} <span class="sr-only"></span></a>
+            <button (click)="logout()" class="btn btn-outline-success my-2 my-sm-0">Logout</button>
+        </form>
+    </div>
+</nav>
+<div>
+    {{'title' | translate}}
 
-<button (click)="getAssociations()" mat-raised-button>
-    {{'associations.buttons.all' | translate}}
-</button>
+    <button (click)="getAssociations()" mat-raised-button>
+        {{'associations.buttons.all' | translate}}
+    </button>
 
-<button (click)="getColors()" mat-raised-button>
-  {{'colors.buttons.all' | translate}}
-</button>
+    <div class="table-container">
+        <mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>{{'associations.name' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let association">
+                    {{association.name}}
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="mail">
+                <mat-header-cell *matHeaderCellDef>{{'associations.mail' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let association">
+                    {{association.mail}}
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="president">
+                <mat-header-cell *matHeaderCellDef>{{'associations.president' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let association">
+                    {{association.president.name}}
+                </mat-cell>
+            </ng-container>
 
-<button (click)="getSizes()" mat-raised-button>
-  {{'sizes.buttons.all' | translate}}
-</button>
-
-<div class="table-container">
-    <mat-table [dataSource]="dataSource">
-        <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef>{{'associations.name' | translate}}</mat-header-cell>
-            <mat-cell *matCellDef="let association">
-                {{association.name}}
-            </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="mail">
-            <mat-header-cell *matHeaderCellDef>{{'associations.mail' | translate}}</mat-header-cell>
-            <mat-cell *matCellDef="let association">
-                {{association.mail}}
-            </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="president">
-            <mat-header-cell *matHeaderCellDef>{{'associations.president' | translate}}</mat-header-cell>
-            <mat-cell *matCellDef="let association">
-                {{association.president.name}}
-            </mat-cell>
-        </ng-container>
-
-        <mat-header-row *matHeaderRowDef="columnsDefinition; sticky: true"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: columnsDefinition"></mat-row>
-    </mat-table>
+            <mat-header-row *matHeaderRowDef="columnsDefinition; sticky: true"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnsDefinition"></mat-row>
+        </mat-table>
+    </div>
 </div>
 
 <div class="table-container">
