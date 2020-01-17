@@ -1,5 +1,8 @@
 {
   "title": "ICEBERG",
+  "login": {
+    "connection": "Connexion"
+  },
   "associations": {
     "buttons": {
       "all": "Récupérer la liste des associations"
