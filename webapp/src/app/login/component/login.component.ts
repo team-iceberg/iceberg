@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
     }
 
-    public socialSignIn(socialProvider: string) {
+    socialSignIn(socialProvider: string) {
         let socialPlatformProvider;
         if (socialProvider === 'google') {
             socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
