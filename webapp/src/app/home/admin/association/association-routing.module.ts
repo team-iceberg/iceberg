@@ -1,17 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from './component/home.component';
+import {AssociationComponent} from './component/association.component';
 
 export const routes: Routes = [
     {
         path: '',
-        component: HomeComponent,
-        children: [
-            {
-                path: 'admin',
-                loadChildren: './admin/admin.module#AdminModule',
-            }
-        ]
+        component: AssociationComponent
     },
     {
         path: '**',
@@ -23,5 +17,5 @@ export const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class HomeRoutingModule {
+export class AssociationRoutingModule {
 }

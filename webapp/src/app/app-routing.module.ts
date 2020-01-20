@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthenticatedGuard} from './tools/guards/authenticated.guard';
 
 export const routes: Routes = [
     {
@@ -7,8 +8,9 @@ export const routes: Routes = [
         loadChildren: './login/login.module#LoginModule'
     },
     {
-        path: 'home',
-        loadChildren: './home/home.module#HomeModule'
+        path: '',
+        loadChildren: './home/home.module#HomeModule',
+        canActivate: [AuthenticatedGuard]
     },
     {path: '**', redirectTo: ''}
 ];

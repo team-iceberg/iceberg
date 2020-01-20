@@ -10,8 +10,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeModule} from './home/home.module';
 import {LoginModule} from './login/login.module';
+import {AuthenticationService} from './services/authentication.service';
 import {SharedModule} from './shared/shared.module';
 import {UrlInterceptor} from './tools/interceptors/url/url.interceptor';
+import {StorageService} from './tools/storage.service';
 import {SpinnerStore} from './tools/stores/spinner/spinner.store';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -52,6 +54,8 @@ export function socialConfigs() {
     ],
     providers: [
         SpinnerStore,
+        StorageService,
+        AuthenticationService,
         {provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true},
         AuthService,
         {

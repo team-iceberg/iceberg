@@ -1,0 +1,23 @@
+<mat-toolbar class="toolbar">
+    <h1>ICEBERG</h1>
+    <div class="toolbar-item-container">
+        <div class="toolbar-item">
+            <button mat-button routerLink="/admin" routerLinkActive="active">
+                {{ 'header.administration.title' | translate }}
+            </button>
+        </div>
+    </div>
+    <div class="user-infos-container" *ngIf="isLoggedIn()">
+        <div class="infos">
+            <span class="infos-name">{{ user.firstName }} {{ user.lastName }}</span>
+        </div>
+
+        <div>
+            <button (click)="logout()"
+                    class="logout-btn"
+                    mat-icon-button>
+                <mat-icon>power_settings_new</mat-icon>
+            </button>
+        </div>
+    </div>
+</mat-toolbar>

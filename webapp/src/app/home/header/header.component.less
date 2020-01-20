@@ -1,0 +1,79 @@
+.toolbar {
+  height: 6vh;
+  background-color: white;
+  border-bottom: darkgray solid 1px;
+  box-shadow: 0 2px 4px darkgray;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  .toolbar-item-container {
+    display: flex;
+    width: 100%;
+    margin-left: 2%;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+
+    .toolbar-item {
+      height: 100%;
+      display: flex;
+      transition: all ease-in-out 120ms;
+
+      &:hover {
+        border-bottom: solid 2px #279b10;
+      }
+
+      button {
+        font-size: 1em;
+      }
+
+      button.active {
+        color: #279b10;
+      }
+    }
+  }
+
+  .user-infos-container {
+    height: 100%;
+    border-left: solid rgb(220, 220, 220) 1px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+
+    .infos {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      line-height: normal;
+      font-size: 0.8em;
+      margin-right: 20px;
+      margin-left: 28px;
+
+      .infos-ldap {
+        font-size: 0.8em;
+        color: darkgray;
+      }
+
+      .infos-store {
+        font-size: 0.9em;
+        color: #279b10;
+      }
+    }
+
+    button.logout-btn {
+      transition: all ease-in-out 150ms;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

@@ -1,15 +1,24 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {User} from '../models/user';
+import {StorageService} from '../tools/storage.service';
 
 
 @Injectable()
 export class AuthenticationService {
 
-    constructor(private http: HttpClient) {
+    constructor(private storageService: StorageService, private http: HttpClient) {
     }
 
-    savesResponse(responce) {
-        let url = 'http://localhost:64726/Api/Login/Savesresponse';
-        return this.http.post(url, responce);
+    public get user(): User {
+        return this.storageService.getUserContact();
+    }
+
+    public set user(userContact: User) {
+        this.storageService.saveUserContact(userContact);
+    };
+
+    removeUser(): void {
+        this.storageService.removeUser();
     }
 }

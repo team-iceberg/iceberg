@@ -3,6 +3,24 @@
   "login": {
     "connection": "Connexion"
   },
+  "header":{
+    "administration": {
+      "title": "Administration",
+      "submenu":{
+        "association": "Associations"
+      }
+    }
+  },
+  "admin": {
+    "associations": {
+      "buttons": {
+        "all": "Récupérer la liste des associations"
+      },
+      "name": "Nom",
+      "mail": "E-mail",
+      "president": "Nom président(e)"
+    }
+  },
   "associations": {
     "buttons": {
       "all": "Récupérer la liste des associations"
