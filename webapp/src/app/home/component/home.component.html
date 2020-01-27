@@ -33,3 +33,24 @@
         <mat-row *matRowDef="let row; columns: columnsDefinition"></mat-row>
     </mat-table>
 </div>
+
+<div class="table-container">
+  <mat-table [dataSource]="dataSourceColoris">
+    <ng-container matColumnDef="libelle">
+      <mat-header-cell *matHeaderCellDef>{{'coloris.libelle' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let coloris">
+        {{coloris.libelle}}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="codeHexa">
+      <mat-header-cell *matHeaderCellDef>{{'coloris.codeHexa' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let coloris">
+        {{coloris.codeHexa}}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columnsDefinitionColoris; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnsDefinitionColoris"></mat-row>
+  </mat-table>
+</div>
+

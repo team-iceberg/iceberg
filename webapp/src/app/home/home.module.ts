@@ -18,7 +18,8 @@ import {HomeRoutingModule} from './home-routing.module';
         TranslateModule
     ],
     providers: [
-        AssociationService
+        AssociationService,
+        ColorisService
     ],
     bootstrap: [HomeComponent]
 })

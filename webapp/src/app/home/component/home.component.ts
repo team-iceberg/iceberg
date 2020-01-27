@@ -14,7 +14,10 @@ export class HomeComponent {
     columnsDefinition: string[] = ['name', 'mail', 'president'];
     dataSource: MatTableDataSource<Association> = new MatTableDataSource<Association>();
 
-    constructor(private associationService: AssociationService) {
+    columnsDefinitionColoris: string[] = ['libelle', 'codeHexa'];
+    dataSourceColoris: MatTableDataSource<Coloris> = new MatTableDataSource<Coloris>();
+
+    constructor(private associationService: AssociationService, private colorisService: ColorisService) {
     }
 
     getAssociations() {
@@ -25,7 +28,7 @@ export class HomeComponent {
 
     getColoris() {
         this.colorisService.getAll().subscribe(data => {
-            this.dataSource.data = data;
+            this.dataSourceColoris.data = data;
         });
     }
 }
