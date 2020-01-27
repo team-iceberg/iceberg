@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Router} from '@angular/router';
 import {User} from '../../models/user';
 
 @Component({
@@ -15,10 +16,9 @@ export class HeaderComponent {
     @Output()
     public logoutEvent: EventEmitter<void>;
 
-    constructor() {
+    constructor(private router: Router) {
         this.logoutEvent = new EventEmitter();
     }
-
 
     logout() {
         this.logoutEvent.emit();
@@ -26,5 +26,9 @@ export class HeaderComponent {
 
     isLoggedIn(): boolean {
         return this.user != null;
+    }
+
+    goToHome() {
+        this.router.navigate(['home']);
     }
 }
