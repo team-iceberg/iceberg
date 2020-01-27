@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {Association} from '../../models/association';
 import {AssociationService} from '../../services/association/association.service';
+import {Coloris} from '../../models/coloris';
+import {ColorisService} from '../../services/coloris/coloris.service';
 
 @Component({
     selector: 'home',
@@ -17,6 +19,12 @@ export class HomeComponent {
 
     getAssociations() {
         this.associationService.getAll().subscribe(data => {
+            this.dataSource.data = data;
+        });
+    }
+
+    getColoris() {
+        this.colorisService.getAll().subscribe(data => {
             this.dataSource.data = data;
         });
     }

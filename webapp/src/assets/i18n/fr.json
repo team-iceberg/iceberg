@@ -7,5 +7,10 @@
     "name": "Nom",
     "mail": "E-mail",
     "president": "Nom président(e)"
+  },
+  "coloris": {
+    "buttons": {
+      "all": "Récupérer la liste des coloris"
+    }
   }
 }

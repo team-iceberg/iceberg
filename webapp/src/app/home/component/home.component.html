@@ -4,6 +4,10 @@
     {{'associations.buttons.all' | translate}}
 </button>
 
+<button (click)="getColoris()" mat-raised-button>
+  {{'coloris.buttons.all' | translate}}
+</button>
+
 <div class="table-container">
     <mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="name">
