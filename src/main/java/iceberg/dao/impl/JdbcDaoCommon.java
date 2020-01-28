@@ -1,4 +1,4 @@
-package iceberg.services.impl;
+package iceberg.dao.impl;
 
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 

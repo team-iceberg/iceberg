@@ -25,6 +25,7 @@ export class LoginComponent {
         }
         this.OAuth.signIn(socialPlatformProvider).then(socialusers => {
             this.authenticationService.user = socialusers;
+            this.authenticationService.authenticateUser(socialusers.idToken).subscribe();
             this.router.navigate(['home']);
         });
     }
