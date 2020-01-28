@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {Association} from '../../models/association';
 import {AssociationService} from '../../services/association/association.service';
-import {Coloris} from '../../models/coloris';
-import {ColorisService} from '../../services/coloris/coloris.service';
+import {Color} from '../../models/color';
+import {ColorService} from '../../services/color/color.service';
 
 @Component({
     selector: 'home',
@@ -14,10 +14,10 @@ export class HomeComponent {
     columnsDefinition: string[] = ['name', 'mail', 'president'];
     dataSource: MatTableDataSource<Association> = new MatTableDataSource<Association>();
 
-    columnsDefinitionColoris: string[] = ['libelle', 'codeHexa'];
-    dataSourceColoris: MatTableDataSource<Coloris> = new MatTableDataSource<Coloris>();
+    columnsDefinitionColor: string[] = ['libelle', 'codeHexa'];
+    dataSourceColor: MatTableDataSource<Color> = new MatTableDataSource<Color>();
 
-    constructor(private associationService: AssociationService, private colorisService: ColorisService) {
+    constructor(private associationService: AssociationService, private colorService: ColorService) {
     }
 
     getAssociations() {
@@ -26,9 +26,9 @@ export class HomeComponent {
         });
     }
 
-    getColoris() {
-        this.colorisService.getAll().subscribe(data => {
-            this.dataSourceColoris.data = data;
+    getColors() {
+        this.colorService.getAll().subscribe(data => {
+            this.dataSourceColor.data = data;
         });
     }
 }

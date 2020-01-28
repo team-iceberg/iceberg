@@ -1,9 +1,9 @@
 package iceberg.dao.impl;
 
-import iceberg.dao.ColorisDao;
-import iceberg.dao.mapper.ColorisRowMapper;
+import iceberg.dao.ColorDao;
+import iceberg.dao.mapper.ColorRowMapper;
 import iceberg.exceptions.DaoException;
-import iceberg.models.Coloris;
+import iceberg.models.Color;
 import iceberg.services.impl.JdbcDaoCommon;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-@Repository("iceberg.colorisDao")
-public class ColorisDaoImpl extends JdbcDaoCommon implements ColorisDao {
+@Repository("iceberg.colorDao")
+public class ColorisDaoImpl extends JdbcDaoCommon implements ColorDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(ColorisDaoImpl.class);
 
     ResourcePropertySource resourcePropertySource;
@@ -27,17 +27,17 @@ public class ColorisDaoImpl extends JdbcDaoCommon implements ColorisDao {
     @Autowired
     protected ColorisDaoImpl(NamedParameterJdbcTemplate jdbc) throws IOException {
         super(jdbc);
-        resourcePropertySource = new ResourcePropertySource("classpath:db/sql/coloris.properties");
+        resourcePropertySource = new ResourcePropertySource("classpath:db/sql/color.properties");
     }
 
     @Override
-    public List<Coloris> getAll() {
+    public List<Color> getAll() {
         try {
             String query = Objects.requireNonNull(resourcePropertySource.getProperty("get.all")).toString();
 
-            return jdbc.query(query, new HashMap<>(), new ColorisRowMapper());
+            return jdbc.query(query, new HashMap<>(), new ColorRowMapper());
         } catch (DataAccessException dae) {
-            LOGGER.error("Error during recovery all ");
+            LOGGER.error("Error during recovery all colors ");
             throw new DaoException(dae);
         }
     }

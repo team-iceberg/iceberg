@@ -4,8 +4,8 @@
     {{'associations.buttons.all' | translate}}
 </button>
 
-<button (click)="getColoris()" mat-raised-button>
-  {{'coloris.buttons.all' | translate}}
+<button (click)="getColors()" mat-raised-button>
+  {{'colors.buttons.all' | translate}}
 </button>
 
 <div class="table-container">
@@ -35,22 +35,22 @@
 </div>
 
 <div class="table-container">
-  <mat-table [dataSource]="dataSourceColoris">
+  <mat-table [dataSource]="dataSourceColor">
     <ng-container matColumnDef="libelle">
-      <mat-header-cell *matHeaderCellDef>{{'coloris.libelle' | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let coloris">
-        {{coloris.libelle}}
+      <mat-header-cell *matHeaderCellDef>{{'colors.libelle' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let color">
+        {{color.libelle}}
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="codeHexa">
-      <mat-header-cell *matHeaderCellDef>{{'coloris.codeHexa' | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let coloris">
-        {{coloris.codeHexa}}
+      <mat-header-cell *matHeaderCellDef>{{'colors.codeHexa' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let color">
+        {{color.codeHexa}}
       </mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="columnsDefinitionColoris; sticky: true"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: columnsDefinitionColoris"></mat-row>
+    <mat-header-row *matHeaderRowDef="columnsDefinitionColor; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnsDefinitionColor"></mat-row>
   </mat-table>
 </div>
 

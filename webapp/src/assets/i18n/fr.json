@@ -8,9 +8,11 @@
     "mail": "E-mail",
     "president": "Nom président(e)"
   },
-  "coloris": {
+  "colors": {
     "buttons": {
       "all": "Récupérer la liste des coloris"
-    }
+    },
+    "libelle": "Libelle",
+    "codeHexa": "Code couleur"
   }
 }

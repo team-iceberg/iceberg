@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Builder
 @AllArgsConstructor
-public class Coloris {
+public class Color {
 
     private String id;
 
