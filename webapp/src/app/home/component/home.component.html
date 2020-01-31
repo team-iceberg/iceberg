@@ -4,6 +4,10 @@
     {{'associations.buttons.all' | translate}}
 </button>
 
+<button (click)="getColors()" mat-raised-button>
+  {{'colors.buttons.all' | translate}}
+</button>
+
 <div class="table-container">
     <mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="name">
@@ -29,3 +33,24 @@
         <mat-row *matRowDef="let row; columns: columnsDefinition"></mat-row>
     </mat-table>
 </div>
+
+<div class="table-container">
+  <mat-table [dataSource]="dataSourceColor">
+    <ng-container matColumnDef="libelle">
+      <mat-header-cell *matHeaderCellDef>{{'colors.libelle' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let color">
+        {{color.libelle}}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="codeHexa">
+      <mat-header-cell *matHeaderCellDef>{{'colors.codeHexa' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let color">
+        {{color.codeHexa}}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columnsDefinitionColor; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnsDefinitionColor"></mat-row>
+  </mat-table>
+</div>
+

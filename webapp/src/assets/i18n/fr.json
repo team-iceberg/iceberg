@@ -7,5 +7,12 @@
     "name": "Nom",
     "mail": "E-mail",
     "president": "Nom président(e)"
+  },
+  "colors": {
+    "buttons": {
+      "all": "Récupérer la liste des coloris"
+    },
+    "libelle": "Libelle",
+    "codeHexa": "Code couleur"
   }
 }
