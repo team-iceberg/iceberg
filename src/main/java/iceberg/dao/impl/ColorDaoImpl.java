@@ -19,13 +19,13 @@ import java.util.List;
 import java.util.Objects;
 
 @Repository("iceberg.colorDao")
-public class ColorisDaoImpl extends JdbcDaoCommon implements ColorDao {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ColorisDaoImpl.class);
+public class ColorDaoImpl extends JdbcDaoCommon implements ColorDao {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ColorDaoImpl.class);
 
     ResourcePropertySource resourcePropertySource;
 
     @Autowired
-    protected ColorisDaoImpl(NamedParameterJdbcTemplate jdbc) throws IOException {
+    protected ColorDaoImpl(NamedParameterJdbcTemplate jdbc) throws IOException {
         super(jdbc);
         resourcePropertySource = new ResourcePropertySource("classpath:db/sql/color.properties");
     }
