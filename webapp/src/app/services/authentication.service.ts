@@ -24,6 +24,6 @@ export class AuthenticationService {
   }
 
   authenticateUser(idToken: string): Observable<any> {
-    return this.http.get(`iceberg/authentication/${idToken}`);
+    return this.http.post(`iceberg/authentication/${idToken}`);
   }
 }
