@@ -4,6 +4,8 @@ import {Association} from '../../models/association';
 import {AssociationService} from '../../services/association/association.service';
 import {Color} from '../../models/color';
 import {ColorService} from '../../services/color/color.service';
+import {Size} from '../../models/size';
+import {SizeService} from '../../services/size/size.service';
 
 @Component({
     selector: 'home',
@@ -17,7 +19,10 @@ export class HomeComponent {
     columnsDefinitionColor: string[] = ['libelle', 'codeHexa'];
     dataSourceColor: MatTableDataSource<Color> = new MatTableDataSource<Color>();
 
-    constructor(private associationService: AssociationService, private colorService: ColorService) {
+    columnsDefinitionSize: string[] = ['libelle'];
+    dataSourceSize: MatTableDataSource<Size> = new MatTableDataSource<Size>();
+
+    constructor(private associationService: AssociationService, private colorService: ColorService, private sizeService: SizeService) {
     }
 
     getAssociations() {
@@ -29,6 +34,12 @@ export class HomeComponent {
     getColors() {
         this.colorService.getAll().subscribe(data => {
             this.dataSourceColor.data = data;
+        });
+    }
+
+    getSizes() {
+        this.sizeService.getAll().subscribe(data => {
+            this.dataSourceSize.data = data;
         });
     }
 }
