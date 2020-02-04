@@ -1,13 +1,10 @@
 package iceberg.models;
 
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.StringJoiner;
 
 /**
  * Class définnissant un utilisateur de l'application.
@@ -17,15 +14,15 @@ import java.util.StringJoiner;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Role {
 
     private static final long serialVersionUID = 1;
 
-    private int id;
+    private Integer idAssociation;
 
-    private String mail;
+    private boolean isAdmin;
 
-    private boolean isRoot;
+    private boolean isMember;
 
-    private List<Role> roles;
+    private boolean isVisitor;
 }

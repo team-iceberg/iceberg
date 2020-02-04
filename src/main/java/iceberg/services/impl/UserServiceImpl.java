@@ -6,21 +6,32 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
+import iceberg.dao.UserDao;
+import iceberg.exceptions.ForbiddenException;
+import iceberg.exceptions.ServiceException;
+import iceberg.models.User;
 import iceberg.services.UserService;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service("iceberg.userService")
 public class UserServiceImpl implements UserService {
 
+  @Autowired
+  @Qualifier("iceberg.userDao")
+  private UserDao userDao;
+
   @Override
-  public void controlToken(String idToken) throws GeneralSecurityException, IOException {
+  public User controlToken(String idToken) throws GeneralSecurityException, IOException {
     HttpTransport httpTransport = new NetHttpTransport();
     JacksonFactory jacksonFactory = new JacksonFactory();
 
-    GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(httpTransport, jacksonFactory)
+    GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(httpTransport,
+        jacksonFactory)
         .setAudience(Collections.singletonList(
             "854308350863-p7d0q7l8s2shvgmrakngoav58926h56m.apps.googleusercontent.com"))
         .build();
@@ -35,20 +46,17 @@ public class UserServiceImpl implements UserService {
 
       // Get profile information from payload
       String email = payload.getEmail();
-      boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
-      String name = (String) payload.get("name");
-      String pictureUrl = (String) payload.get("picture");
-      String locale = (String) payload.get("locale");
-      String familyName = (String) payload.get("family_name");
-      String givenName = (String) payload.get("given_name");
 
-      System.out.println(payload.toPrettyString());
+      User user = userDao.getByMail(email);
 
-      // Use or store profile information
-      // ...
-
+      if(user != null){
+        user.setRoles(userDao.getRolesByUser(user.getId()));
+        return user;
+      } else {
+        throw new ForbiddenException("User " + email + " is unauthorize");
+      }
     } else {
-      System.out.println("Invalid ID token.");
+      throw new ServiceException("Invalid ID token.");
     }
   }
 }

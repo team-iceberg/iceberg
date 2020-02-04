@@ -23,7 +23,7 @@ public final class ReactiveLogUtils {
      * @return un {@link Mono < Void >} témoignant de la complétion de l'opération
      */
     public static Mono<Void> log(Log logger, Level level, String message, Throwable e, String... args) {
-        return SecurityUtils.getCurrentLdap().defaultIfEmpty("Unknown").doOnNext(ldap -> logMessage(logger, level, message, e, ldap, args)).then();
+        return SecurityUtils.getCurrentMail().defaultIfEmpty("Unknown").doOnNext(ldap -> logMessage(logger, level, message, e, ldap, args)).then();
     }
 
     /**
