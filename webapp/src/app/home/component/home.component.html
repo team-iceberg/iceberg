@@ -12,6 +12,10 @@
   {{'sizes.buttons.all' | translate}}
 </button>
 
+<button (click)="getFamilies()" mat-raised-button>
+  {{'families.buttons.all' | translate}}
+</button>
+
 <div class="table-container">
     <mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="name">
@@ -69,6 +73,20 @@
 
     <mat-header-row *matHeaderRowDef="columnsDefinitionSize; sticky: true"></mat-header-row>
     <mat-row *matRowDef="let row; columns: columnsDefinitionSize"></mat-row>
+  </mat-table>
+</div>
+
+<div class="table-container">
+  <mat-table [dataSource]="dataSourceFamily">
+    <ng-container matColumnDef="libelle">
+      <mat-header-cell *matHeaderCellDef>{{'family.libelle' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let family">
+        {{family.libelle}}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columnsDefinitionFamily; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnsDefinitionFamily"></mat-row>
   </mat-table>
 </div>
 

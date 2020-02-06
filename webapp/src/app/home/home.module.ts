@@ -4,6 +4,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {AssociationService} from '../services/association/association.service';
 import {ColorService} from '../services/color/color.service';
 import {SizeService} from '../services/size/size.service';
+import {FamilyService} from '../services/family/family.service';
 import {MaterialModule} from '../tools/material/material.module';
 import {HomeComponent} from './component/home.component';
 import {HomeRoutingModule} from './home-routing.module';
@@ -21,7 +22,8 @@ import {HomeRoutingModule} from './home-routing.module';
     providers: [
         AssociationService,
         ColorService,
-        SizeService
+        SizeService,
+        FamilyService
     ],
     bootstrap: [HomeComponent]
 })
