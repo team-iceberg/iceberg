@@ -8,11 +8,11 @@ export const routes: Routes = [
         loadChildren: './login/login.module#LoginModule'
     },
     {
-        path: '',
+        path: 'home',
         loadChildren: './home/home.module#HomeModule',
         canActivate: [AuthenticatedGuard]
     },
-    {path: '**', redirectTo: ''}
+    {path: '**', redirectTo: 'home'}
 ];
 
 @NgModule({
