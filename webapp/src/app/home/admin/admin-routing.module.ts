@@ -10,6 +10,10 @@ export const routes: Routes = [
             {
                 path: 'association',
                 loadChildren: './association/association.module#AssociationModule'
+            },
+            {
+                path: 'color',
+                loadChildren: './color/color.module#ColorModule'
             }
         ]
     },

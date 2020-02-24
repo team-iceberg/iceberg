@@ -12,7 +12,9 @@
     "administration": {
       "title": "Administration",
       "submenu":{
-        "association": "Associations"
+        "association": "Associations",
+        "color": "Couleurs",
+        "size": "Tailles"
       }
     }
   },
@@ -24,6 +26,14 @@
       "name": "Nom",
       "mail": "E-mail",
       "president": "Nom président(e)"
+    },
+    "colors": {
+      "buttons": {
+        "all": "Récupérer la liste des coloris"
+      },
+      "id": "Id",
+      "libelle": "Libelle",
+      "codeHexa": "Code couleur"
     }
   },
   "associations": {
@@ -33,12 +43,5 @@
     "name": "Nom",
     "mail": "E-mail",
     "president": "Nom président(e)"
-  },
-  "colors": {
-    "buttons": {
-      "all": "Récupérer la liste des coloris"
-    },
-    "libelle": "Libelle",
-    "codeHexa": "Code couleur"
   }
 }

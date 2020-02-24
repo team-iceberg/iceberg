@@ -3,30 +3,30 @@ import {Router} from '@angular/router';
 import {User} from '../../models/user';
 
 @Component({
-    selector: 'header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.less']
+  selector: 'header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.less']
 })
 
 export class HeaderComponent {
 
-    @Input()
-    public user: User;
+  @Input()
+  public user: User;
 
-    @Output()
-    public logoutEvent: EventEmitter<void>;
+  @Output()
+  public logoutEvent: EventEmitter<void>;
 
-    constructor(private router: Router) {
-        this.logoutEvent = new EventEmitter();
-    }
+  constructor(private router: Router) {
+    this.logoutEvent = new EventEmitter();
+  }
 
-    logout() {
-        this.logoutEvent.emit();
-    }
+  logout() {
+    this.logoutEvent.emit();
+  }
 
-    isLoggedIn(): boolean {
-        return this.user != null;
-    }
+  isLoggedIn(): boolean {
+    return this.user != null;
+  }
 
     goToHome() {
         this.router.navigate(['home']);

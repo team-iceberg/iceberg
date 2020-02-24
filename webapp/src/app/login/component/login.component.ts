@@ -44,6 +44,5 @@ export class LoginComponent {
         this.toaster.alert(errMsg, 3000);
       });
     });
-
   }
 }

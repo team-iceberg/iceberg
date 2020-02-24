@@ -3,10 +3,6 @@ import {Router} from '@angular/router';
 import {AuthService} from 'angularx-social-login';
 import {User} from '../../models/user';
 import {AssociationService} from '../../services/association/association.service';
-import {Color} from '../../models/color';
-import {ColorService} from '../../services/color/color.service';
-import {Size} from '../../models/size';
-import {SizeService} from '../../services/size/size.service';
 import {AuthenticationService} from '../../services/authentication.service';
 
 @Component({
@@ -15,20 +11,20 @@ import {AuthenticationService} from '../../services/authentication.service';
   styleUrls: ['./home.component.less']
 })
 export class HomeComponent implements OnInit {
-    user: User;
+  user: User;
 
-    constructor(private OAuth: AuthService, private authenticationService: AuthenticationService,
-                private associationService: AssociationService, private router: Router) {
-    }
+  constructor(private OAuth: AuthService, private authenticationService: AuthenticationService,
+              private associationService: AssociationService, private router: Router) {
+  }
 
-    ngOnInit() {
-        this.user = this.authenticationService.user;
-    }
+  ngOnInit() {
+    this.user = this.authenticationService.user;
+  }
 
-    logout() {
-        this.authenticationService.removeUser();
-        this.OAuth.signOut().then(data => {
-            this.router.navigate([`/login`]);
-        });
-    }
+  logout() {
+    this.authenticationService.removeUser();
+    this.OAuth.signOut().then(data => {
+      this.router.navigate([`/login`]);
+    });
+  }
 }

@@ -8,7 +8,7 @@ import {AssociationService} from '../../../../services/association/association.s
 import {AuthenticationService} from '../../../../services/authentication.service';
 
 @Component({
-    selector: 'home',
+    selector: 'association',
     templateUrl: './association.component.html',
     styleUrls: ['./association.component.less']
 })
