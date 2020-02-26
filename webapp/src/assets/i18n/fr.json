@@ -34,6 +34,13 @@
       "id": "Id",
       "libelle": "Libelle",
       "codeHexa": "Code couleur"
+    },
+    "size": {
+      "buttons": {
+        "all": "Récupérer la liste des tailles"
+      },
+      "id": "Id",
+      "libelle": "Libelle"
     }
   },
   "associations": {

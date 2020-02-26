@@ -14,6 +14,10 @@ export const routes: Routes = [
             {
                 path: 'color',
                 loadChildren: './color/color.module#ColorModule'
+            },
+            {
+                path: 'size',
+                loadChildren: './size/size.module#SizeModule'
             }
         ]
     },

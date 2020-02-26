@@ -16,7 +16,7 @@ export class ColorComponent {
   columnsDefinition: string[] = ['id', 'libelle', 'codeHexa'];
   dataSource: MatTableDataSource<Color> = new MatTableDataSource<Color>();
 
-  constructor(private colorService: ColorService, private router: Router) {
+  constructor(private colorService: ColorService) {
   }
 
   getColors() {
