@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 import {MaterialModule} from '../../../shared/material/material.module';
+import {AssociationRoutingModule} from '../association/association-routing.module';
 import {ColorComponent} from "./component/color.component";
 import {ColorRoutingModule} from "./color-routing.module";
 
@@ -15,13 +16,7 @@ import {ColorRoutingModule} from "./color-routing.module";
     imports: [
         ColorRoutingModule,
         TranslateModule,
-        FlexModule,
-        FlexLayoutModule,
-        RouterModule,
-        MaterialModule,
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule
+        MaterialModule
     ],
     bootstrap: [ColorComponent]
 })

@@ -1,5 +1,6 @@
+import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {FlexModule} from '@angular/flex-layout';
+import {FlexModule, FlexLayoutModule} from '@angular/flex-layout';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 import {MaterialModule} from '../../shared/material/material.module';
@@ -17,7 +18,9 @@ import {AdminComponent} from './component/admin.component';
         TranslateModule,
         FlexModule,
         RouterModule,
-        MaterialModule
+        MaterialModule,
+        CommonModule,
+        FlexLayoutModule
     ],
     bootstrap: [AdminComponent]
 })

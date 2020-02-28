@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 import {MaterialModule} from '../../../shared/material/material.module';
+import {AssociationRoutingModule} from '../association/association-routing.module';
 import {SizeComponent} from './component/size.component';
 import {SizeRoutingModule} from './size-routing.module';
 
@@ -15,13 +16,7 @@ import {SizeRoutingModule} from './size-routing.module';
     imports: [
         SizeRoutingModule,
         TranslateModule,
-        FlexModule,
-        FlexLayoutModule,
-        RouterModule,
-        MaterialModule,
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule
+        MaterialModule
     ],
     bootstrap: [SizeComponent]
 })

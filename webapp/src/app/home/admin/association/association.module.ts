@@ -15,13 +15,7 @@ import {AssociationComponent} from './component/association.component';
     imports: [
         AssociationRoutingModule,
         TranslateModule,
-        FlexModule,
-        FlexLayoutModule,
-        RouterModule,
-        MaterialModule,
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule
+        MaterialModule
     ],
     bootstrap: [AssociationComponent]
 })
