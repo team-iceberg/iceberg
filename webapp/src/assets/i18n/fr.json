@@ -1,5 +1,48 @@
 {
   "title": "ICEBERG",
+  "login": {
+    "connection": "Connexion",
+    "error": {
+      "403": "Vous n'êtes pas autorisé à accéder à l'application",
+      "500": "Une erreur est survenue lors de la connexion",
+      "disconnected": "Vous avez été déconnecté"
+    }
+  },
+  "header":{
+    "administration": {
+      "title": "Administration",
+      "submenu":{
+        "association": "Associations",
+        "color": "Couleurs",
+        "size": "Tailles"
+      }
+    }
+  },
+  "admin": {
+    "associations": {
+      "buttons": {
+        "all": "Récupérer la liste des associations"
+      },
+      "name": "Nom",
+      "mail": "E-mail",
+      "president": "Nom président(e)"
+    },
+    "colors": {
+      "buttons": {
+        "all": "Récupérer la liste des coloris"
+      },
+      "id": "Id",
+      "libelle": "Libelle",
+      "codeHexa": "Code couleur"
+    },
+    "size": {
+      "buttons": {
+        "all": "Récupérer la liste des tailles"
+      },
+      "id": "Id",
+      "libelle": "Libelle"
+    }
+  },
   "associations": {
     "buttons": {
       "all": "Récupérer la liste des associations"
@@ -7,12 +50,5 @@
     "name": "Nom",
     "mail": "E-mail",
     "president": "Nom président(e)"
-  },
-  "colors": {
-    "buttons": {
-      "all": "Récupérer la liste des coloris"
-    },
-    "libelle": "Libelle",
-    "codeHexa": "Code couleur"
   }
 }

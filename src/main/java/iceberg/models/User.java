@@ -1,5 +1,6 @@
 package iceberg.models;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,5 +21,11 @@ public class User {
 
     private static final long serialVersionUID = 1;
 
-    private String name;
+    private int id;
+
+    private String mail;
+
+    private boolean isRoot;
+
+    private List<Role> roles;
 }

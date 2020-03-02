@@ -4,7 +4,6 @@ import iceberg.dao.AssociationDao;
 import iceberg.dao.mapper.AssociationRowMapper;
 import iceberg.exceptions.DaoException;
 import iceberg.models.Association;
-import iceberg.services.impl.JdbcDaoCommon;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -31,7 +31,7 @@ public final class SecurityUtils {
      * @return a fulfilled {@link Mono} if user is authenticated, or an empty one if the user is
      * anonymous.
      */
-    public static Mono<String> getCurrentLdap() {
-        return getCurrentUser().map(User::getName);
+    public static Mono<String> getCurrentMail() {
+        return getCurrentUser().map(User::getMail);
     }
 }

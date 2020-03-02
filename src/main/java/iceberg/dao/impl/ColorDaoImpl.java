@@ -4,7 +4,6 @@ import iceberg.dao.ColorDao;
 import iceberg.dao.mapper.ColorRowMapper;
 import iceberg.exceptions.DaoException;
 import iceberg.models.Color;
-import iceberg.services.impl.JdbcDaoCommon;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

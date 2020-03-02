@@ -11,7 +11,9 @@ public class AssociationRowMapper extends MapperUtils implements RowMapper<Assoc
     @Override
     public Association mapRow(ResultSet resultSet, int i) {
         President president = President.builder().build();
-        return Association.builder().name(safeGetString(resultSet, "NAME")).mail(safeGetString(resultSet, "MAIL"))
-                .president(president).build();
+        return Association.builder()
+            .name(safeGetString(resultSet, "NAME"))
+            .mail(safeGetString(resultSet, "MAIL"))
+            .president(president).build();
     }
 }

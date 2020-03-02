@@ -1,0 +1,25 @@
+<div>
+  <button (click)="getSizes()" mat-raised-button>
+    {{'admin.size.buttons.all' | translate}}
+  </button>
+
+  <div class="table-container">
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>{{'admin.size.id' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let color">
+          {{color.id}}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="libelle">
+        <mat-header-cell *matHeaderCellDef>{{'admin.size.libelle' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let color">
+          {{color.libelle}}
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="columnsDefinition; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columnsDefinition"></mat-row>
+    </mat-table>
+  </div>
+</div>

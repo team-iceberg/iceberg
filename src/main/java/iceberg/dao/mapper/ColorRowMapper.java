@@ -9,6 +9,9 @@ public class ColorRowMapper extends MapperUtils implements RowMapper<Color> {
 
     @Override
     public Color mapRow(ResultSet resultSet, int i) {
-        return Color.builder().libelle(safeGetString(resultSet, "LIBELLE")).codeHexa(safeGetString(resultSet, "CODE_HEXA")).build();
+        return Color.builder()
+            .id(safeGetString(resultSet, "ID"))
+            .libelle(safeGetString(resultSet, "LIBELLE"))
+            .codeHexa(safeGetString(resultSet, "CODE_HEXA")).build();
     }
 }

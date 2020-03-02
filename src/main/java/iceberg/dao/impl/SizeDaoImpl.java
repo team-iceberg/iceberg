@@ -4,7 +4,6 @@ import iceberg.dao.SizeDao;
 import iceberg.dao.mapper.SizeRowMapper;
 import iceberg.exceptions.DaoException;
 import iceberg.models.Size;
-import iceberg.services.impl.JdbcDaoCommon;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,45 +1,30 @@
-import {Component} from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
-import {Association} from '../../models/association';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from 'angularx-social-login';
+import {User} from '../../models/user';
 import {AssociationService} from '../../services/association/association.service';
-import {Color} from '../../models/color';
-import {ColorService} from '../../services/color/color.service';
-import {Size} from '../../models/size';
-import {SizeService} from '../../services/size/size.service';
+import {AuthenticationService} from '../../services/authentication.service';
 
 @Component({
-    selector: 'home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.less']
+  selector: 'home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.less']
 })
-export class HomeComponent {
-    columnsDefinition: string[] = ['name', 'mail', 'president'];
-    dataSource: MatTableDataSource<Association> = new MatTableDataSource<Association>();
+export class HomeComponent implements OnInit {
+  user: User;
 
-    columnsDefinitionColor: string[] = ['libelle', 'codeHexa'];
-    dataSourceColor: MatTableDataSource<Color> = new MatTableDataSource<Color>();
+  constructor(private OAuth: AuthService, private authenticationService: AuthenticationService,
+              private associationService: AssociationService, private router: Router) {
+  }
 
-    columnsDefinitionSize: string[] = ['libelle'];
-    dataSourceSize: MatTableDataSource<Size> = new MatTableDataSource<Size>();
+  ngOnInit() {
+    this.user = this.authenticationService.user;
+  }
 
-    constructor(private associationService: AssociationService, private colorService: ColorService, private sizeService: SizeService) {
-    }
-
-    getAssociations() {
-        this.associationService.getAll().subscribe(data => {
-            this.dataSource.data = data;
-        });
-    }
-
-    getColors() {
-        this.colorService.getAll().subscribe(data => {
-            this.dataSourceColor.data = data;
-        });
-    }
-
-    getSizes() {
-        this.sizeService.getAll().subscribe(data => {
-            this.dataSourceSize.data = data;
-        });
-    }
+  logout() {
+    this.authenticationService.removeUser();
+    this.OAuth.signOut().then(data => {
+      this.router.navigate([`/login`]);
+    });
+  }
 }

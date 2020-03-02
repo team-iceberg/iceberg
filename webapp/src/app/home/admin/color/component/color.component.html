@@ -1,0 +1,31 @@
+<div>
+  <button (click)="getColors()" mat-raised-button>
+    {{'admin.colors.buttons.all' | translate}}
+  </button>
+
+  <div class="table-container">
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>{{'admin.colors.id' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let color">
+          {{color.id}}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="libelle">
+        <mat-header-cell *matHeaderCellDef>{{'admin.colors.libelle' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let color">
+          {{color.libelle}}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="codeHexa">
+        <mat-header-cell *matHeaderCellDef>{{'admin.colors.codeHexa' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let color">
+          {{color.codeHexa}}
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="columnsDefinition; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columnsDefinition"></mat-row>
+    </mat-table>
+  </div>
+</div>
