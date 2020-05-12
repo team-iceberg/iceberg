@@ -1,21 +1,22 @@
-<div class="login-box" fxLayoutAlign="center" layout="row">
-    <div layout="column">
-        <div layout="column">
-            <div layout="row">
-                <img class="logo" src="../../../assets/img/logo.png">
-            </div>
+<div fxLayout="column" fxLayoutAlign="space-between stretch">
+    <div class="header">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <img class="logo" src="../../../assets/img/logo-white-without-name.png">
+            <span class="title">{{'title' | translate}}</span>
         </div>
-        <div flex>
-            <form (ngSubmit)="socialSignIn('google')" novalidate>
-                <div fxLayout="column" fxLayoutAlign="center">
-                    <div flex class="container-connect">
-                        <button class="connection" type="submit" mat-raised-button>
-                            {{'login.connection' | translate}}
-                        </button>
-                    </div>
-                </div>
-            </form>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="space-evenly center">
+        <span>{{'description' | translate}}</span>
+        <button class="connection" type="button" mat-raised-button (click)="socialSignIn('google')">
+            {{'login.connection' | translate}}
+        </button>
+
+        <div fxLayout="column" fxLayoutAlign="none center" class="contact">
+            <span>{{'login.contact.description' | translate}}</span>
+            <a  class="contact-button" (click)="contactUs()">
+                {{'login.contact.button' | translate}}
+            </a>
         </div>
     </div>
 </div>
-

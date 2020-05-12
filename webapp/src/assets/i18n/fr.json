@@ -1,7 +1,12 @@
 {
   "title": "ICEBERG",
+  "description": "Iceberg vous permet d'inventorier facilement vos produits !",
   "login": {
-    "connection": "Connexion",
+    "connection": "Se connecter",
+    "contact": {
+      "description": "Vous souhaitez un compte Iceber ?",
+      "button": "Contactez-nous"
+    },
     "error": {
       "403": "Vous n'êtes pas autorisé à accéder à l'application",
       "500": "Une erreur est survenue lors de la connexion",

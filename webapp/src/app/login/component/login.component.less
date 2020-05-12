@@ -2,22 +2,34 @@
 @my-dark-blue: rgb(31, 107, 178);
 @my-blue: rgb(32, 144, 199);
 
-.logo {
-  width: 200px;
-  height: 200px;
+.header {
+  background-color: @my-purple;
+
+  .logo {
+    width: 45px;
+    height: 50px;
+  }
+
+  .title {
+    color: white;
+    font-size: 20px;
+    padding-left: 2%;
+  }
 }
 
-.login-box {
-  width: 600px;
-  margin: 5% auto auto;
-  text-align: center;
+.connection {
+  background-color: @my-purple;
+  color: white;
+  text-transform: uppercase;
+}
 
-  .container-connect{
-    margin-top: 25%;
-
-    .connection{
-      box-shadow: 0px 3px 1px -2px @my-purple, 0px 2px 2px 0px @my-dark-blue, 0px 1px 5px 0px @my-blue;
-    }
+.contact {
+  color: @my-purple;
+  margin-top: 10%;
+  .contact-button {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 
